@@ -1,0 +1,6 @@
+*.log
+*.exe
+*.mdb
+*.chk
+*.ldb
+static.ldr
