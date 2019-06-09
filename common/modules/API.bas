@@ -689,7 +689,11 @@ Dim lbooDocopy As Boolean
         If FileDateTime(pstrSourceFile) > FileDateTime(pstrDestinationFile) Then
             lbooDocopy = True
         End If
-    Else
+     Else
+        lbooDocopy = True
+    End If
+    
+    If lbooDocopy Then
         FileCopy pstrSourceFile, pstrDestinationFile
     End If
     
