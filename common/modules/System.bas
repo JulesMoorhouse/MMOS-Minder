@@ -75,7 +75,6 @@ End Sub
 Function GetUser(pstrUserName As String, ByRef pintUserCount As Long, pbooNoStatus As String) As Boolean
 Dim lsnaLists As Recordset
 Dim lstrSQL As String
-Dim llngRecCount As Long
 'Converted table names to constants
 
     If IsMissing(pbooNoStatus) Then
@@ -87,8 +86,6 @@ Dim llngRecCount As Long
     End If
     
     On Error GoTo ErrHandler
-    
-    llngRecCount = 0
     
     'lstrSQL = "SELECT * from " & gtblUsers & " where UserId ='" & pstrUserName & "';"
     
@@ -105,17 +102,20 @@ Dim llngRecCount As Long
     
     With lsnaLists
         If Not .EOF Then
-            llngRecCount = llngRecCount + 1
             gstrGenSysInfo.strUserName = .Fields("UserID") & "" ' & "" for these 5 fields
             gstrGenSysInfo.strUserFullName = .Fields("UserName") & ""
             gstrGenSysInfo.strUserPassword = .Fields("UserPassword") & ""
-            gstrGenSysInfo.lngUserLevel = .Fields("UserLevel") & ""
+            Dim lstrLevel As String: lstrLevel = .Fields("UserLevel") & ""
+            If lstrLevel = "" Then
+                lstrLevel = 0
+            End If
+            gstrGenSysInfo.lngUserLevel = CLng(lstrLevel)
             gstrGenSysInfo.strUserNotes = .Fields("UserNotes") & ""
             pintUserCount = .Fields("Count") & ""
         End If
     End With
     
-    If llngRecCount = 0 Then
+    If pintUserCount = 0 Then
         GetUser = False
     Else
         GetUser = True
@@ -440,11 +440,11 @@ Dim lintFileNum As Integer
 
     lintFileNum = FreeFile
 '    Open App.Path & "\" & App.EXEName & ".log" For Append As FreeFile
-    Open "c:\windows\desktop\" & App.ExeName & ".txt" For Append As lintFileNum
+    Open "c:\windows\desktop\" & App.EXEName & ".txt" For Append As lintFileNum
     Print #lintFileNum, Now() & vbCrLf & lstrString
     Close lintFileNum
 
-    RunNWait "NOTEPAD c:\windows\desktop\" & App.ExeName & ".txt"
+    RunNWait "NOTEPAD c:\windows\desktop\" & App.EXEName & ".txt"
 Quit:
     On Error Resume Next
     gdatCentralDatabase.Close

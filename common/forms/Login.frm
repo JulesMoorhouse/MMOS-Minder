@@ -77,14 +77,14 @@ Begin VB.Form frmLogin
             AutoSize        =   2
             Object.Width           =   1773
             MinWidth        =   1764
-            TextSave        =   "05/06/2019"
+            TextSave        =   "09/06/2019"
          EndProperty
          BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
             Style           =   5
             AutoSize        =   2
             Object.Width           =   1773
             MinWidth        =   1764
-            TextSave        =   "18:45"
+            TextSave        =   "14:41"
          EndProperty
       EndProperty
    End
@@ -171,6 +171,8 @@ Private Sub cmdOK_Click()
                     lintUserLevel = 99
                     lstrUserLevel = "Information Systems level (as you're the first user!)"
                 End If
+                
+                .strUserName = ProperCase$(Trim$(txtUserName))
                 
                 AddNewUser .strUserName, "My Full Name", lintUserLevel, txtPassword.Text, " ", True
                 GetUser Trim$(.strUserName), lintUserCount, True

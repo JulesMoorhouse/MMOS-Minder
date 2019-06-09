@@ -1,6 +1,6 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Object = "{00028C01-0000-0000-0000-000000000046}#1.0#0"; "DBGRID32.OCX"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmChildCashbook 
    BorderStyle     =   4  'Fixed ToolWindow
    Caption         =   "Customer Cash Book"
@@ -160,12 +160,12 @@ Begin VB.Form frmChildCashbook
          BeginProperty Panel2 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
             Style           =   6
             AutoSize        =   2
-            TextSave        =   "05/07/02"
+            TextSave        =   "09/06/2019"
          EndProperty
          BeginProperty Panel3 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
             Style           =   5
             AutoSize        =   2
-            TextSave        =   "15:32"
+            TextSave        =   "13:05"
          EndProperty
       EndProperty
    End
@@ -387,10 +387,6 @@ ErrHandler:
         Resume Next
     End Select
             
-    
-End Sub
-
-Private Sub Form_Resize()
     
 End Sub
 
