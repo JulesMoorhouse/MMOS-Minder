@@ -7,6 +7,7 @@ The program runs when MMOS, MAdmin or MReps programs end.
 
 The Minder program is dispplayed as a small red bar on the top left of the screen.
 
+Written by [Jules Moorhouse](https://www.julesmoorhouse.com).
 
 ## Contributing
 Contributions for bug fixing or improvements are welcomed. Feel free to submit a <a href="https://github.com/JulesMoorhouse/MMOS/pulls">pull request</a>. If you would like to create an <a href="https://github.com/JulesMoorhouse/MMOS/issues">issue</a>, please do so <a href="https://github.com/JulesMoorhouse/MMOS/issues">here</a>.
