@@ -1214,7 +1214,7 @@ Dim lstrLog As String
         CopyMemoryToMinMaxInfo MinMax, lParam, Len(MinMax)
 
         'Specify new minimum size for window.
-        MinMax.ptMinTrackSize.X = 800
+        MinMax.ptMinTrackSize.x = 800
         MinMax.ptMinTrackSize.Y = 600
         CopyMemoryFromMinMaxInfo lParam, MinMax, Len(MinMax)
 
@@ -1532,7 +1532,7 @@ Dim lbooBatchEnable As Boolean
     For lintArrInc2 = 0 To UBound(mudtUImnuFileHistory)
         With mudtUImnuFileHistory(lintArrInc2)
             If .strItemValue <> "" Then
-                If mdiMain.ActiveForm.Name = "frmAbout" Then
+                If Screen.ActiveForm.Name = "frmAbout" Then
                     mdiMain.mnuFileHistory(lintArrInc2).Visible = True
                     mdiMain.mnuFileHistory(lintArrInc2).Enabled = True
                     mdiMain.mnuFileHistory(lintArrInc2).Caption = "&" & (lintArrInc2 + 1) & " " & .strItemValue
@@ -1662,7 +1662,7 @@ Dim lbooBatchEnable As Boolean
         End If
     Case "MAINTENANCE"
         lbooBatchEnable = False
-        If mdiMain.ActiveForm.Name = "frmMain" Then
+        If Screen.ActiveForm.Name = "frmMain" Then
             lbooBatchEnable = True
             Select Case gstrGenSysInfo.lngUserLevel
             Case Is < 20 'Distribution
@@ -1724,8 +1724,8 @@ Dim lbooBatchEnable As Boolean
     Select Case UCase$(App.ProductName)
     Case "LITE", "CLIENT", "MANAGER", "MAINTENANCE"
         If mdiMain.Visible Then
-            If mdiMain.ActiveForm.Name = "frmAbout" Or mdiMain.ActiveForm.Name = "frmMainReps" Or _
-                mdiMain.ActiveForm.Name = "frmMain" Then
+            If Screen.ActiveForm.Name = "frmAbout" Or Screen.ActiveForm.Name = "frmMainReps" Or _
+                Screen.ActiveForm.Name = "frmMain" Then
                 mdiMain.mnuToolsMinder.Enabled = True
             Else
                 mdiMain.mnuToolsMinder.Enabled = False
@@ -1814,7 +1814,7 @@ Dim lintAlwaysMaximized As Integer
         With mdiMain.CommonDialog1
             .DialogTitle = "Print Setup"
             .CancelError = True
-            .flags = cdlPDPrintSetup
+            .Flags = cdlPDPrintSetup
             .ShowPrinter
         End With
     Case mdiMain.mnuFileExit.Caption
